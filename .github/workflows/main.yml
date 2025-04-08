@@ -1,0 +1,36 @@
+name: test-performance-k6
+on:  
+  push:
+    branches:
+      - main
+    paths:
+      - k6-performance-test/**
+      - .github/workflows/k6-performance-test.yml
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Run k6 test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run k6 - basic test
+        uses: grafana/k6-action@v0.2.0
+        with:
+          filename: ./k6-performance-test/first-script.js
+          flags: --vus 20 --duration 10s
+      - name: Run k6 - with auth
+        uses: grafana/k6-action@v0.2.0
+        with:
+          filename: ./k6-performance-test/second-script.js
+      - name: Run k6 - multiple scenario
+        uses: grafana/k6-action@v0.2.0
+        with:
+          filename: ./k6-performance-test/third-script.js
+      - name: Run k6 - post scenario
+        uses: grafana/k6-action@v0.2.0
+        with:
+          filename: ./k6-performance-test/fourth-script.js
+
+
