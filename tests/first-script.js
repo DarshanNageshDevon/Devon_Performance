@@ -12,8 +12,10 @@ export default function (data) {
     const resp = http.get('https://gorest.co.in/public/v2/users');
     check(resp, { 'status is 200': (r) => r.status === 200 });
     sleep(1);
+}
 
-    return {
-        "result.html": htmlReport(data),
-    };
+    export function handleSummary(data) {
+        return {
+            "result.html": htmlReport(data),
+        };
 }
