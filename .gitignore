@@ -1,2 +1,5 @@
 script.html
 result.html
+package-lock.json
+node_modules
+package.json
