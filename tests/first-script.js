@@ -14,8 +14,10 @@ export default function () {
     sleep(1);
 }
 
-    export function handleSummary(data) {
-        return {
-            "./result.html": htmlReport(data),
-        };
-}
+
+export function handleSummary(data) {
+    return {
+      "result.html": htmlReport(data),
+      stdout: textSummary(data, { indent: " ", enableColors: true }),
+    };
+  }
