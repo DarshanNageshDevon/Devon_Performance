@@ -8,7 +8,7 @@ export const options = {
     },
 };
 
-export default function (data) {
+export default function () {
     const resp = http.get('https://gorest.co.in/public/v2/users');
     check(resp, { 'status is 200': (r) => r.status === 200 });
     sleep(1);
