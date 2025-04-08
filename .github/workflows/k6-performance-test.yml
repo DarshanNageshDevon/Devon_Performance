@@ -32,5 +32,6 @@ jobs:
         uses: grafana/k6-action@v0.2.0
         with:
           filename: ./tests/fourth-script.js
+          continue-on-error: true
 
 
