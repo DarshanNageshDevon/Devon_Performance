@@ -36,9 +36,13 @@ jobs:
         continue-on-error: true
         with:
           filename: ./tests/fourth-script.js
+         
+      - name: Create reports directory
+        run: mkdir -p reports
+
       - name: Upload Performance Report
         uses: actions/upload-artifact@v4
         continue-on-error: true
         with:
           name: performance-report
-          path: ./result.html
+          path: ./reports/result.html
